@@ -1,9 +1,8 @@
 package day6;
 
-import java.io.BufferedReader;
+import utils.InputReader;
+
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,32 +48,24 @@ public class Day6 {
         return sumOfYesAnswers;
     }
 
-
     private static List<Group> getData(File inputFile) {
+
         List<Group> data = new ArrayList<>();
-        try {
-            FileReader fr = new FileReader(inputFile);
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            Group group = new Group(0);
-            while ((line = br.readLine()) != null) {
+        Group group = new Group(0);
 
-                if (line.isBlank()) {
+        for (String line : InputReader.getLinesOfFile(inputFile)) {
+            if (line.isBlank()) {
 
-                    data.add(group);
-                    group = new Group(0);
-                    continue;
-                }
-                group.incrementNumberOfPeople();
-                for (int i = 0; i < line.length(); i++) {
-                    group.addQuestion(String.valueOf(line.charAt(i)));
-                }
+                data.add(group);
+                group = new Group(0);
+                continue;
             }
-            data.add(group);
-            fr.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+            group.incrementNumberOfPeople();
+            for (int i = 0; i < line.length(); i++) {
+                group.addQuestion(String.valueOf(line.charAt(i)));
+            }
         }
+        data.add(group);
         return data;
     }
 }
