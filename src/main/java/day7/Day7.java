@@ -10,7 +10,7 @@ import java.util.List;
 public class Day7 {
 
     public static void day7() {
-        System.out.println("========== Running code for Day 6 ============");
+        System.out.println("========== Running code for Day 7 ============");
 
         File inputFile = new File("src/main/java/day7/input.txt");
 
