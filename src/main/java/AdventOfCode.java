@@ -6,6 +6,7 @@ import day5.Day5;
 import day6.Day6;
 import day7.Day7;
 import day8.Day8;
+import day9.Day9;
 
 public class AdventOfCode {
 
@@ -19,6 +20,7 @@ public class AdventOfCode {
         Day6.day6();
         Day7.day7();
         Day8.day8();
+        Day9.day9();
     }
 
 
